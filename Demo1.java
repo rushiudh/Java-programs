@@ -1,13 +1,13 @@
-import java.util.Scanner;
+import java.io.*;
 class Demo1
 {
-  public static void main (String args []){
+  public static void main (String args []) throws IOException{
     long mg=0, g, kg;
-      Scanner sc = new Scanner(System.in);
+      DataInputStream in = new DataInputStream(System.in);
       mg=0;
 
       System.out.println("Entern the weight in mg :-");
-      mg=sc.nextInt();
+      mg = Integer.parseInt(in.readLine());
 
     g=mg/100;
     kg=g/100;
