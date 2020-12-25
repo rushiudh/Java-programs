@@ -1,22 +1,17 @@
 import java.io.*;
 class Emp
 {
-  int code;
+  int code=0;
   String name, gd;
   double bs=0f, da=0f, ta=0f, hra=0f, pf=0f, gs=0f;
-  public void getdata(){
+  void getdata() throws IOException{
     DataInputStream inp=new DataInputStream(System.in);
-    try{
       System.out.println("Enter Code:");
       code=Integer.parseInt(inp.readLine());
       System.out.println("Enter the name:");
       name=inp.readLine();
       System.out.println("Enter Basic Salary:");
       bs=Double.valueOf(inp.readLine()).doubleValue();
-    }
-    catch (Exception e) {
-      System.out.println("Error");
-     }
   }
   public void caldata(){
     da=(bs*150)/100;
@@ -38,10 +33,14 @@ class Emp
 }
 public class emp69
 {
-  public static void main(String[] args) {
-    Emp e[]=new Emp[20] ;
+  public static void main(String[] args)throws IOException{
+    Emp e[] = new Emp[20];
+    for(int x=0;x<2;x++)
+    {
+      e[x] = new Emp();
+    }
     int i;
-    for(i=0;i<20;i++)
+    for(i=0;i<2;i++)
     {
       System.out.println("Enter Data of the Employee no."+(i+1)+":");
       e[i].getdata();
@@ -53,11 +52,10 @@ public class emp69
     System.out.println("-----------------------------------------");
     System.out.println("CODE\tNAME\tBASIC\tDA\tTA\tHRA\tPF\tGross\tGrade\t");
     System.out.println("------------------------------ -----------");
-    for(i=0;i<20;i++)
+    for(i=0;i<2;i++)
     {
       e[i].putdata();
     }
     System.out.println("-----------------------------------------");
-
   }
-}
+  }
